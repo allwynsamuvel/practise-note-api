@@ -1,11 +1,10 @@
-const express =  require('express');
-const dotenv = require('dotenv');
-const morgan = require('morgan');
-const helmet = require('helmet');
-const cors = require('cors');
-const mongoSanitize = require('express-mongo-sanitize'); /* Sanitization */
-
-dotenv.config({ quiet: true }); /* Quiet is used to silence runtime logging message */
+import express from 'express';
+import 'dotenv/config';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors';
+import mongoSanitize from 'express-mongo-sanitize'; /* Sanitization */
+import './src/config/dbConfig.js';
 
 console.log(`\n=== Environment: ${process.env.NODE_ENV} ===`);
 
