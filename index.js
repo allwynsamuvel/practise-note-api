@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import mongoSanitize from 'express-mongo-sanitize'; /* Sanitization */
 import './src/config/dbConfig.js';
+import router from './src/routes/routes.js';
 
 console.log(`\n=== Environment: ${process.env.NODE_ENV} ===`);
 
@@ -26,6 +27,8 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' })); /* Parse URL-enc
 
 // Prevents NoSQL Injection (removes $ and . from user input)
 app.use(mongoSanitize());
+
+app.use('/api', router);
 
 // Handle invalid routes
 app.use('/', (_req, res) => {
